@@ -9,12 +9,13 @@ using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp.Controllers
 {
-	[Route("/api")]
+	[Route("/api/hackatons")]
 	[UsedImplicitly]
-	public class ApiController : Controller
+	public class HackatonsController : Controller
 	{
-		[HttpGet("hackatons")]
+		[HttpGet]
 		[UsedImplicitly]
+		[AllowCrossSiteJson]
 		public async Task<IEnumerable<Hackaton>> GetHackatons()
 		{
 			using (var db = new HackScoreDbContext())
@@ -23,7 +24,7 @@ namespace Undefined.Scoring.WebApp.Controllers
 			}
 		}
 
-		[HttpPost("hackatons")]
+		[HttpPost]
 		[UsedImplicitly]
 		public async Task<IActionResult> PostHackaton([FromBody] Hackaton hackaton)
 		{
@@ -50,18 +51,15 @@ namespace Undefined.Scoring.WebApp.Controllers
 			}
 		}
 
-		[HttpPost("hackatons/{id}/cases")]
-		public async Task<IActionResult> PostHackatonCase(Int32 id, [FromBody] HackatonCase hackatonCase)
-		{
-			if (hackatonCase.Id != default(Int32))
-				return BadRequest("Hackaton case ID must be zero, it will be generated automatically.");
 
+		[HttpGet("hackatons/{id}/teams")]
+		public async Task<IEnumerable<Team>> GetCommandsOfHackaton(Int32 id)
+		{
 			using (var db = new HackScoreDbContext())
 			{
-				hackatonCase.HackatonId = id;
-				await db.Cases.AddAsync(hackatonCase);
-				await db.SaveChangesAsync();
-				return Ok(hackatonCase.Id);
+				return await db.Teams
+					.Where(t => t.HackatonId == id)
+					.ToArrayAsync();
 			}
 		}
 	}
