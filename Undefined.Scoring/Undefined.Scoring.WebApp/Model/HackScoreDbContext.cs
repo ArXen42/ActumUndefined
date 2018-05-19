@@ -15,7 +15,7 @@ namespace Undefined.Scoring.WebApp.Model
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder
-				.UseNpgsql(@"Server=192.168.137.18;Database=HackScoreDb;User Id=undefined");
+				.UseNpgsql(@"Server=192.168.43.153;Database=HackScoreDb;User Id=undefined");
 //				.UseLazyLoading();
 		}
 

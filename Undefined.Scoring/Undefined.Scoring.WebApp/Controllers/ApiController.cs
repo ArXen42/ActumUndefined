@@ -1,64 +1,65 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Rest;
 using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp.Controllers
 {
 	[Route("/api")]
 	[UsedImplicitly]
-	public class ApiController : ControllerBase
+	public class ApiController : Controller
 	{
 		[HttpGet("hackatons")]
 		[UsedImplicitly]
-		public ActionResult GetHackatons()
+		public IEnumerable<Hackaton> GetHackatons()
 		{
 			using (var db = new HackScoreDbContext())
 			{
-				return Ok(db.Hackatons.ToArray());
+				return db.Hackatons.ToArray();
 			}
 		}
 
 		[HttpPost("hackatons")]
 		[UsedImplicitly]
-		public ActionResult PostHackaton([FromBody] Hackaton hackaton)
+		public Int32 PostHackaton([FromBody] Hackaton hackaton)
 		{
 			using (var db = new HackScoreDbContext())
 			{
 				if (hackaton.Id != default(Int32))
-					return new BadRequestResult();
+					throw new HttpOperationException("Hackaton ID must be zero, it will be generated automatically.");
 
 				db.Hackatons.Add(hackaton);
 				db.SaveChanges();
-				return Ok(hackaton.Id);
+				return hackaton.Id;
 			}
 		}
 
 		[HttpGet("hackatons/{id}/cases")]
-		public ActionResult GetHackatonsCases(Int32 id)
+		public IEnumerable<HackatonCase> GetHackatonsCases(Int32 id)
 		{
 			using (var db = new HackScoreDbContext())
 			{
-				return Ok(db
-					.Cases
+				return db.Cases
 					.Where(c => c.Hackaton.Id == id)
-					.ToArray());
+					.ToArray();
 			}
 		}
 
 		[HttpPost("hackatons/{id}/cases")]
-		public ActionResult PostHackatonCase(Int32 id, [FromBody] HackatonCase hackatonCase)
+		public Int32 PostHackatonCase(Int32 id, [FromBody] HackatonCase hackatonCase)
 		{
 			if (hackatonCase.Id != default(Int32))
-				return new BadRequestResult();
+				throw new HttpOperationException("Hackaton case ID must be zero, it will be generated automatically.");
 
 			using (var db = new HackScoreDbContext())
 			{
 				hackatonCase.HackatonId = id;
 				db.Cases.Add(hackatonCase);
 				db.SaveChanges();
-				return Ok(hackatonCase.Id);
+				return hackatonCase.Id;
 			}
 		}
 	}
