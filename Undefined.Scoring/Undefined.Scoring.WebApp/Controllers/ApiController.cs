@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp.Controllers
 {
-	[Route("api/[controller]")]
-	public class ValuesController : Controller
+	[Route("api/test")]
+	public class ApiController : ControllerBase
 	{
-		// GET api/values
-		[HttpGet]
-		public IEnumerable<String> Get()
+		[HttpGet("asd")]
+		[Produces("application/json")]
+		[AllowCrossSiteJson]
+		public ActionResult Get()
 		{
-			return new[] {"value1", "value2"};
+			Console.WriteLine("Requested");
+			return Ok(new {Value1 = 1, Value2 = 2});
 		}
 
 		// GET api/values/5

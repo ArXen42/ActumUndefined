@@ -25,7 +25,7 @@ namespace Undefined.Scoring.WebApp
 
 			return WebHost.CreateDefaultBuilder(args)
 				.UseStartup<Startup>()
-				.UseUrls("http://localhost")
+				.UseUrls("http://localhost;http://192.168.137.151")
 				.Build();
 		}
 	}
