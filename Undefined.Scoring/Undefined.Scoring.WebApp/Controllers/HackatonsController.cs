@@ -11,11 +11,11 @@ namespace Undefined.Scoring.WebApp.Controllers
 {
 	[Route("/api/hackatons")]
 	[UsedImplicitly]
+	[AllowCrossSiteJson]
 	public class HackatonsController : Controller
 	{
 		[HttpGet]
 		[UsedImplicitly]
-		[AllowCrossSiteJson]
 		public async Task<IEnumerable<Hackaton>> GetHackatons()
 		{
 			using (var db = new HackScoreDbContext())
