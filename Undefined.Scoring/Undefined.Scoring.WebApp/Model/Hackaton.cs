@@ -6,7 +6,15 @@ namespace Undefined.Scoring.WebApp.Model
 {
 	public class Hackaton
 	{
+		public Hackaton(String name, String description)
+		{
+			Name = name;
+			Description = description;
+		}
 		public Int32 Id { get; set; }
+		
+		public String Name { get; set; }
+		public String Description { get; set; }
 
 		public virtual IEnumerable<HackatonCase> HackatonCases { get; set; }
 	}

@@ -1,38 +1,36 @@
 ﻿using System;
+using System.Linq;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc;
 using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp.Controllers
 {
-	[Route("api/test")]
+	[Route("/api")]
+	[UsedImplicitly]
 	public class ApiController : ControllerBase
 	{
-		[HttpGet("asd")]
-		[Produces("application/json")]
-		[AllowCrossSiteJson]
-		public ActionResult Get()
+		[HttpGet("hackatons")]
+		[UsedImplicitly]
+		public ActionResult GetHackatons()
 		{
-			Console.WriteLine("Requested");
-			return Ok(new {Value1 = 1, Value2 = 2});
+			using (var db = new HackScoreDbContext())
+			{
+				return Ok(db.Hackatons.ToArray());
+			}
 		}
 
-		// GET api/values/5
-		[HttpGet("{id}")]
-		public String Get(Int32 id)
+		[HttpPost("hackatons")]
+		[UsedImplicitly]
+		public ActionResult PostHackaton(String name, String description)
 		{
-			return "value";
+			using (var db = new HackScoreDbContext())
+			{
+				var hackaton = new Hackaton(name, description);
+				db.Hackatons.Add(hackaton);
+				db.SaveChanges();
+				return Ok(hackaton.Id);
+			}
 		}
-
-		// POST api/values
-		[HttpPost]
-		public void Post([FromBody] String value) { }
-
-		// PUT api/values/5
-		[HttpPut("{id}")]
-		public void Put(Int32 id, [FromBody] String value) { }
-
-		// DELETE api/values/5
-		[HttpDelete("{id}")]
-		public void Delete(Int32 id) { }
 	}
 }
