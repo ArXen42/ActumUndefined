@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp
 {
@@ -13,6 +14,15 @@ namespace Undefined.Scoring.WebApp
 
 		private static IWebHost BuildWebHost(String[] args)
 		{
+			using (var db = new HackScoreDbContext())
+			{
+				Console.WriteLine("Ensure deleted");
+				db.Database.EnsureDeleted();
+
+				Console.WriteLine("Ensure created");
+				db.Database.EnsureCreated();
+			}
+
 			return WebHost.CreateDefaultBuilder(args)
 				.UseStartup<Startup>()
 				.UseUrls("http://localhost")

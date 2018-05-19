@@ -2,7 +2,7 @@
 
 namespace Undefined.Scoring.WebApp.Model
 {
-	public class AllowCrossSiteJsonAttribute: ActionFilterAttribute
+	public class AllowCrossSiteJsonAttribute : ActionFilterAttribute
 	{
 		public override void OnActionExecuting(ActionExecutingContext context)
 		{
