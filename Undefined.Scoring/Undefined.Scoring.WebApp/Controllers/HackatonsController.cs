@@ -39,7 +39,7 @@ namespace Undefined.Scoring.WebApp.Controllers
 			}
 		}
 
-		[HttpGet("hackatons/{id}/cases")]
+		[HttpGet("{id}/cases")]
 		public async Task<IEnumerable<HackatonCase>> GetHackatonsCases(Int32 id)
 		{
 			using (var db = new HackScoreDbContext())
@@ -51,7 +51,7 @@ namespace Undefined.Scoring.WebApp.Controllers
 		}
 
 
-		[HttpGet("hackatons/{id}/teams")]
+		[HttpGet("{id}/teams")]
 		public async Task<IEnumerable<Team>> GetCommandsOfHackaton(Int32 id)
 		{
 			using (var db = new HackScoreDbContext())

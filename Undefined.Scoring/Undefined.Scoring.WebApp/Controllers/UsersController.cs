@@ -34,7 +34,7 @@ namespace Undefined.Scoring.WebApp.Controllers
 			return Ok(user.Id);
 		}
 
-		[HttpPut("{userId}joinTeam/{teamId}")]
+		[HttpPut("{userId}/joinTeam/{teamId}")]
 		public async Task<IActionResult> UserJoinTeam(Int32 userId, Int32 teamId)
 		{
 			using (var db = new HackScoreDbContext())

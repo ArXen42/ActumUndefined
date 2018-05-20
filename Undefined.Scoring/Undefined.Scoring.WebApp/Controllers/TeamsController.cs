@@ -8,6 +8,7 @@ namespace Undefined.Scoring.WebApp.Controllers
 	[Route("api/teams")]
 	public class TeamsController : Controller
 	{
+		[HttpPost]
 		public async Task<IActionResult> PostTeam([FromBody] Team team)
 		{
 			if (team.Id != default(Int32))

@@ -88,8 +88,8 @@ namespace Undefined.Scoring.WebApp.Model
 
 		public String Name { get; set; }
 
-		public Int32 HackatonId { get; set; }
-		public Int32 CaseId     { get; set; }
+		public Int32  HackatonId { get; set; }
+		public Int32? CaseId     { get; set; }
 
 		[JsonIgnore]
 		public virtual Hackaton Hackaton { get; set; }
