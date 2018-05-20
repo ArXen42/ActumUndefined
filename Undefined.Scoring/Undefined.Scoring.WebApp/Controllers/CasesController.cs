@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Undefined.Scoring.WebApp.Model;
 
 namespace Undefined.Scoring.WebApp.Controllers
@@ -21,5 +24,18 @@ namespace Undefined.Scoring.WebApp.Controllers
 				return Ok(hackatonCase.Id);
 			}
 		}
+
+		[HttpGet("{id}/checkpoints")]
+		public async Task<IEnumerable<CaseCheckpoint>> GetCaseCheckpoints(Int32 id)
+		{
+			using (var db = new HackScoreDbContext())
+			{
+				var hackatonCase = await db.Cases
+					.FirstAsync(c => c.Id == id);
+
+				return hackatonCase.Checkpoints.ToArray();
+			}
+		}
+		
 	}
 }

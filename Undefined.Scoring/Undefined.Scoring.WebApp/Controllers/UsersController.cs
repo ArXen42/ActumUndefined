@@ -8,7 +8,6 @@ using Undefined.Scoring.WebApp.Model;
 namespace Undefined.Scoring.WebApp.Controllers
 {
 	[Route("/api/users")]
-	[AllowCrossSiteJson]
 	public class UsersController : Controller
 	{
 		[HttpGet]

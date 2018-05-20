@@ -75,7 +75,7 @@ namespace Undefined.Scoring.WebApp.Model
 		public String UserName { get; set; }
 		public String Contacts { get; set; }
 
-		public Int32 TeamId { get; set; }
+		public Int32? TeamId { get; set; }
 
 		[JsonIgnore]
 		public virtual Team Team { get; set; }

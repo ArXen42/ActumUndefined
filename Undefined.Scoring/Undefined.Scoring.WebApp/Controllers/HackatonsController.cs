@@ -11,7 +11,6 @@ namespace Undefined.Scoring.WebApp.Controllers
 {
 	[Route("/api/hackatons")]
 	[UsedImplicitly]
-	[AllowCrossSiteJson]
 	public class HackatonsController : Controller
 	{
 		[HttpGet]

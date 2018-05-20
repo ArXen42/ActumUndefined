@@ -6,7 +6,6 @@ using Undefined.Scoring.WebApp.Model;
 namespace Undefined.Scoring.WebApp.Controllers
 {
 	[Route("api/teams")]
-	[AllowCrossSiteJson]
 	public class TeamsController : Controller
 	{
 		public async Task<IActionResult> PostTeam([FromBody] Team team)

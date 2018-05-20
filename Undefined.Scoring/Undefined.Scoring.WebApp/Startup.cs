@@ -28,6 +28,13 @@ namespace Undefined.Scoring.WebApp
 		{
 			app.UseSwagger(typeof(Startup).GetTypeInfo().Assembly, settings => { });
 			app.UseSwaggerUi3(settings => { });
+			app.UseCors((builder) =>
+			{
+				builder.AllowAnyOrigin();
+				builder.AllowAnyMethod();
+				builder.AllowAnyHeader();
+				builder.AllowCredentials();
+			});
 
 			app.UseMvc();
 		}
