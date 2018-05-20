@@ -1,0 +1,28 @@
+﻿.jumbotron-fix {
+  margin:0!important;
+}
+.header-main {
+  font-family: Georgia, serif;
+  color: rgb(0,100,160)!important;
+}
+sub {
+  font-size: 35%;
+  color: black;
+}
+.headpost {
+	font-size: 200%;
+	color: #008b8b;
+	margin-top: 5%;
+ }
+.postdate {
+	margin-left: 5%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #008b8b;
+
+}
+ .postcontent {
+ 	margin-left: 10%;
+ 	background-color: rgb(215,215,215);
+
+ }

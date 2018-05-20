@@ -1,0 +1,15 @@
+<div class="item">
+	<h2>Кейс</h2>
+	Выбор хакатона:
+	<select name="hackId" ng-model="m_case.hackatonId">
+		<option value="{{item.id}}" ng-repeat="item in hackList">
+			{{item.name}}
+		</option>
+	</select><br>
+	Имя:
+	<input type="text" name="Name" ng-model="m_case.name" placeholder="Имя"><br>
+	Описание:<br>
+	<textarea name="Desc" rows="8" cols="60" ng-model="m_case.description">
+	</textarea><br>
+	<button ng-click="onSend()" class="btn btn-default">Добавить</button>
+</div>

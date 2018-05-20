@@ -1,0 +1,21 @@
+<div class="item">
+	<h2>Чекпоинт</h2>
+	Выбор хакатона:
+	<select name="type" ng-model="hackatonId" ng-change="onHackChange()">
+		<option value="{{item.id}}" ng-repeat="item in hackList">
+		{{item.name}}
+	</option>
+	</select><br>
+	Выбор кейса:
+	<select name="type" ng-model="checkpoint.caseId">
+		<option value="{{item.id}}" ng-repeat="item in caseList"> {{item.name}} </option>
+	</select><br>
+	Имя:
+	<input type="text" name="Name" id="" placeholder="Имя" ng-model="checkpoint.name"><br>
+	Дата:
+	<input type="date" name="deadline" ng-model="checkpoint.deadline"><br>
+	Описание:<br>
+	<textarea name="desc" rows="8" cols="60"  ng-model="checkpoint.description">
+	</textarea><br>
+	<button ng-click="onSend()" class="btn btn-default">Добавить</button>
+</div>

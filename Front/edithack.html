@@ -1,0 +1,10 @@
+<div class="item">
+	<h2>Хакатон</h2>
+	<input type="text" name="name" ng-model="hack.name" placeholder="Имя"><br>
+	Начало: <input type="date" name="beginDate" ng-model="hack.beginDate"><br>
+	Конец: <input type="date" name="endDate" ng-model="hack.endDate"><br>
+	Описание:<br>
+	<textarea name="description" rows="8" cols="60" ng-model="hack.description">
+	</textarea><br>
+	<button ng-click="onSend()" class="btn btn-default">Добавить</button>
+</div>

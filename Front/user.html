@@ -1,0 +1,27 @@
+<div>
+	<h3>Пользователь:</h3>
+	<select name="userName" ng-model="user.id" ng-change="onUserChanged()">
+		<option value="{{item.id}}" ng-repeat="item in userList"> {{item.userName}} </option>
+	</select>
+</div>
+<div ng-if="user.id>=0">
+	<div> 
+		<a href="#">
+			<h2 >
+				<img src="nullav.png" width= "10%" height= "10%">
+				<u>{{user.userName}}</u>			
+			</h2> 
+		</a>
+	</div>
+	<div class="col-sm-6">
+		<div>
+			<h5>Контакт: {{user.contacts}}</h5>
+		</div>
+	</div>
+	<div  class="col-sm-6">
+		<h5>Количество посещённых хакатонов: фф</h5>
+		<h5>Количество выигранных хакатонов: фф</h5>
+		<h5>Количество доведённых до конца проектов: ф</h5>
+		<h5><a href="#">Ссылка на выборку команд с его персоной тута!</a></h5>
+	</div>	
+</div>

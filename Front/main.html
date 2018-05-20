@@ -1,0 +1,21 @@
+<h1>Хакатоны</h1>
+<div ng-repeat="item in hackList"">
+	<h1 class="headpost"> >>>>>>>>>>>>   {{item.name}}</h1>
+	<div class="postdate">Начало: {{item.beginDate}} </div>
+    <div class="postdate"> |__>Конец: {{item.endDate}}</div>
+	<div class="postcontent">{{item.description}}</div>
+</div>
+<!-- <div align="center">
+<ul class="pagination">
+    <li class="disabled"><a href="#">&laquo;</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">&raquo;</a></li>
+</ul>
+</div> -->
+<!-- не удаляй кнопку плез -->
+<!-- <button ng-click="getTest()">Click</button>
+<p>{{msg}}</p> -->

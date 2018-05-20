@@ -1,0 +1,12 @@
+<h1>Регистрация команды</h1>
+<div>
+	<div>Название: <input type="text" name="teamName" ng-model="teamName"/> </div>
+	<div>Хакатон:
+	<select name="type" ng-model="hackatonId">
+		<option value="{{item.id}}" ng-repeat="item in hackList">
+			{{item.name}}
+		</option>
+	</select>
+	</div>
+	<button ng-click="registerTeam()" class="btn btn-default">Регистрируй!</button>
+</div>

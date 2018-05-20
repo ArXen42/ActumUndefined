@@ -1,0 +1,26 @@
+<div class="item">
+	<h2>Критерий</h2>
+	Выбор хакатона:
+	<select name="type" ng-model="hackatonId" ng-change="onHackChange()">
+	<option value="{{item.id}}" ng-repeat="item in hackList">
+		{{item.name}}
+	</option>
+	</select><br>
+	Выбор кейса:
+	<select name="type" ng-model="caseId" ng-change="onCaseChange()">
+		<option value="{{item.id}}" ng-repeat="item in caseList">
+			{{item.name}}
+		</option>
+	</select><br>
+	Выбор чекпоинта:
+	<select name="type" ng-model="criteria.checkpointId">
+		<option value="{{item.id}}" ng-repeat="item in checkpointList">
+			{{item.name}}
+		</option>
+	</select><br>
+	Выбор типа критерия:
+	<input type="text" name="Name" ng-model="criteria.name">
+	Цена:
+	<input type="number" name="Scores" id="" placeholder="Цена" ng-model="criteria.scores"><br>
+	<button ng-click="onSend()" class="btn btn-default">Добавить</button>
+</div>

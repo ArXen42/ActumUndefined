@@ -1,0 +1,28 @@
+<div> 
+	<h1>Вступление в команду</h1>
+	<div>
+	Пользователь:
+	<select name="userName" ng-model="userId">
+		<option value="{{user.id}}" ng-repeat="user in userList">
+			{{user.userName}}
+		</option>
+	</select>
+	</div>
+	<div>
+		Хакатон:
+		<select name="hackatonName" ng-model="hackatonId" ng-change="onHackatonChanged()">
+			<option value="{{hackaton.id}}" ng-repeat="hackaton in hackList">
+				{{hackaton.name}}
+			</option>
+		</select>
+	</div>
+	<div>
+	Команда:
+	<select name="teamName" ng-model="teamId">
+		<option value="{{team.id}}" ng-repeat="team in teamList">
+			{{team.name}}
+		</option>
+	</select>
+	</div>
+	<button ng-click="joinTeam()" class="btn btn-default">Подключить к команде</button>
+</div>

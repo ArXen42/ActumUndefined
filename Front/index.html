@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- не менять пока что -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="wwwroot/css/site.css">
+  <link rel="stylesheet" href="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+  <script src="wwwroot/lib/angular.min.js"></script>
+  <script src="wwwroot/lib/angular-route.min.js"></script>
+  <script src="wwwroot/lib/jquery/dist/jquery.js"></script>
+  <script src="wwwroot/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="jumbotron text-center jumbotron-fix">
+  <h1 class="header-main">HackScore <sub style="font-size: 25%">by Team Undefined</sub></h1>
+</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#!">Главная</a></li>     
+      <li><a href="#!about">О нас</a></li>
+      <li><a href="#!search">Поиск</a></li>
+      <li><a href="#!userreg">Регистрация участника</a></li>
+      <li><a href="#!teamreg">Регистрация команды</a></li>
+      <li><a href="#!join">Вступление в команду</a></li>
+      <li><a href="#!scores">Оценка</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" > Ввод <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#!edithack">Хакатон</a></li>
+          <li><a href="#!editcase">Кейс</a></li>
+          <li><a href="#!editcheck">Чекпоинт</a></li>
+          <li><a href="#!editcrit">Критерий</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">      
+      <li><a href="#!team">Название команды</a></li>
+      <li><a href="#!user">Имя юзера</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container body-content" ng-app="mainApp" ng-view>
+</div>
+
+<hr/>
+<footer class="text-center">
+    <p>&copy; 2018 - Team Undefined</p>
+</footer>
+<script src="wwwroot/js/site.js"></script>
+</body>
+</html>

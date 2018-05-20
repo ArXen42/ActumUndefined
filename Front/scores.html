@@ -1,0 +1,39 @@
+<div> 
+	<h1>Оценки</h1>
+	<div>
+		Выбор хакатона:
+		<select name="type" ng-model="hackatonId" ng-change="onHackChange()">
+			<option value="{{item.id}}" ng-repeat="item in hackList">
+				{{item.name}}
+			</option>
+		</select>
+	</div>
+	<div ng-show="hackatonId">
+		Выбор команды:
+		<select name="type" ng-model="criteria.teamId" ng-change="onTeamChange()">
+			<option value="{{item.id}}" ng-repeat="item in teamList">
+				{{item.name}}
+			</option>
+		</select>
+	</div>
+	<div ng-show="criteria.teamId">
+		Выбор чекпоинта:
+		<select name="type" ng-model="checkpointId" ng-change="onCheckpointChange()">
+			<option value="{{item.id}}" ng-repeat="item in checkpointList">
+				{{item.name}}
+			</option>
+		</select>
+	</div>
+	<div ng-show="checkpointId">
+		Выбор критерия:
+		<select name="type" ng-model="criteria.criteriaId">
+			<option value="{{item.id}}" ng-repeat="item in criteriaList">
+				{{item.name}}
+			</option>
+		</select>
+	</div>
+	<div ng-show="criteria.criteriaId">
+		Оценка:<input type="number" name="score" size="3" ng-model="criteria.scores" >/Данные из базы данных.<br>
+		<button ng-click="onSend()" class="btn btn-default">Оценить</button> 
+	</div>
+</div>

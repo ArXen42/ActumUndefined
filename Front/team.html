@@ -1,0 +1,36 @@
+<h1>Команда</h1>
+<div>
+	<div>
+		Хакатон:
+		<select name="hackatonName" ng-model="hackatonId" ng-change="onHackatonChanged()">
+			<option value="{{hackaton.id}}" ng-repeat="hackaton in hackList">
+				{{hackaton.name}}
+			</option>
+		</select>
+	</div>
+	<div ng-show="teamList.length>0">
+		Команда:
+		<select name="teamName" ng-model="teamId" ng-change="onTeamChanged()">
+			<option value="{{team.id}}" ng-repeat="team in teamList">
+				{{team.name}}
+			</option>
+		</select>
+	</div>
+
+</div>
+<div ng-show="currentTeam.id>=0">
+	<h2>{{currentTeam.name}}</h2>
+	<h2>Состав команды:</h2>
+	<ul>
+		<li ng-repeat="human in currentTeam.users">{{human.userName}} : {{human.contacts}}</li>
+	</ul>
+
+	<h2>Выбор задания {{currentTeam.case}}</h2>
+	<select ng-model='currentTeam.case' ng-change="onCaseChanged()">
+		<option value="{{m_case.id}}" ng-repeat="m_case in cases">{{m_case.name}}</option>
+	</select>
+
+	<h2>Список чекпоинтов</h2>
+	<ul><li ng-repeat="checkpoint in checkpointsList">{{checkpoint.name}} : {{checkpoint.contacts}}</li></ul>
+	<button ng-click="sendNewCase()" class="btn btn-default">Изменить кейс</button>
+</div>
